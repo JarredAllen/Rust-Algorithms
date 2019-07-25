@@ -2,16 +2,19 @@
 
 use std::collections::HashMap;
 
+/// A basic Trie implementation in Rust
 pub struct Trie {
     flag: bool,
     children: HashMap<char, Trie>,
 }
 
 impl Trie {
+    /// Create a new Trie structure 
     pub fn new() -> Trie {
         Trie { flag: false, children: HashMap::new() }
     }
 
+    /// Returns true iff value has been inserted into the trie previously
     pub fn search(&self, value: &str) -> bool {
         if value.is_empty() {
             self.flag
@@ -23,6 +26,7 @@ impl Trie {
         }
     }
 
+    /// Adds the value to the trie
     pub fn insert(&mut self, value: &str) {
         if value.is_empty() {
             self.flag = true;
